@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'  # Cambia a la versión que prefieras
+          python-version: '3.12'  # Cambia a la versión que prefieras
 
       - name: Install Pelican and dependencies
         run: |
