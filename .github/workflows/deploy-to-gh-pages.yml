@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Ejecutar el workflow cuando haya un push en main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'  # Cambia a la versión que prefieras
+
+      - name: Install Pelican and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pelican
+          pip install markdown  # Si usas markdown en lugar de reStructuredText
+          pip install -r requirements.txt  # Si tienes un archivo de requerimientos adicionales
+          
+      - name: Generate site
+        run: pelican content -o output -s pelicanconf.py  # Genera el sitio con el contenido y configuración especificada
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output  # Directorio donde Pelican genera el sitio
