@@ -1,6 +1,7 @@
 AUTHOR = 'Isra'
 SITENAME = 'My New Website'
 SITEURL = ""
+RELATIVE_URLS = True
 
 PATH = "content"
 
