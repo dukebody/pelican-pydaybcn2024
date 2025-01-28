@@ -17,4 +17,4 @@ At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praese
 
 
 [See about]({filename}/pages/about.md)
-![Alt Text]({static}/images/python-en-español-logo.png)
+![Alt Text]({static}/images/python-en-español-logo.png){: .image-process-crisp}
